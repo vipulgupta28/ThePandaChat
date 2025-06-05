@@ -13,7 +13,7 @@ const VideoCall: React.FC = () => {
 
   useEffect(() => {
     const initWebSocket = () => {
-      const ws = new WebSocket(`ws://${BACKEND_HOST}/video-call`);
+      const ws = new WebSocket(`wss://${BACKEND_HOST}/video-call`);
       socketRef.current = ws;
 
       const startCall = async () => {
