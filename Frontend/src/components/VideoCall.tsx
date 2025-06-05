@@ -8,9 +8,12 @@ const VideoCall: React.FC = () => {
   const localStreamRef = useRef<MediaStream | null>(null);
   const [status, setStatus] = useState('Connecting...');
 
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_API_URL
+  const BACKEND_HOST = BACKEND_URL.replace(/^https?:\/\//, '');
+
   useEffect(() => {
     const initWebSocket = () => {
-      const ws = new WebSocket('ws://localhost:4000');
+      const ws = new WebSocket(`ws://${BACKEND_HOST}/video-call`);
       socketRef.current = ws;
 
       const startCall = async () => {

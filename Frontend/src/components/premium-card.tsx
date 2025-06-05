@@ -4,9 +4,11 @@ import { CheckCircle } from "lucide-react";
 
 
 export function PremiumCardDemo() {
+
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_API_URL
   const handlePayment = async () => {
     try {
-      const { data } = await axios.post("http://localhost:3000/api/v1/create-order", {
+      const { data } = await axios.post(`${BACKEND_URL}/api/v1/create-order`, {
         amount: 100,
         currency: "INR",
       });

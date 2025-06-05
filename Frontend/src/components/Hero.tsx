@@ -10,6 +10,8 @@ const Hero: React.FC = () => {
   const [connecting, setConnecting] = useState(false);
 
   const options = ["World", "People", "Your ex may be"];
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_API_URL
+  const BACKEND_HOST = BACKEND_URL.replace(/^https?:\/\//, '');
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,7 +26,7 @@ const Hero: React.FC = () => {
   const handleStartChatting = () => {
     setConnecting(true);
 
-    const socket = new WebSocket("ws://localhost:3000");
+    const socket = new WebSocket(`wss://${BACKEND_HOST}/chat`);
 
     socket.onopen = () => {
       console.log("Connected to server...");
