@@ -10,8 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-three/drei": "^9.122.0",
-    "@react-three/fiber": "^9.0.0-alpha.8",
     "@supabase/supabase-js": "^2.49.8",
     "@tailwindcss/vite": "^4.1.6",
     "@types/react-icons": "^2.2.7",
