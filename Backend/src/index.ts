@@ -30,6 +30,10 @@ app.post("/api/v1/create-order", async (req, res) => {
 app.use(cors());
 app.use(express.json());
 
+app.get("/health", (req, res) => {
+  res.send("OK");
+});
+
 const server = http.createServer(app);
 
 const videoCallWSS = new WebSocketServer({ noServer: true });
